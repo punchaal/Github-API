@@ -19,9 +19,6 @@ function getNews(){
 
 
 function displayResults(responseJson){
-    console.log(responseJson)
-    $("#results-list").empty();
-    $("#js-error-message").empty();
     for(let i=0; i<responseJson.length; i++){
     $("#results-list").append(
         `<li><h3>${responseJson[i].name}</h3></li>
@@ -37,6 +34,8 @@ function removeHiddenClass(){
 function watchForm() {
     $('form').submit(event => {
       event.preventDefault();
+      $("#results-list").empty();
+      $("#js-error-message").empty();
       getNews()
     });
   }
